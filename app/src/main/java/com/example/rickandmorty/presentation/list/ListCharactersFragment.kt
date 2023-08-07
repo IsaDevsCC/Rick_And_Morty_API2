@@ -11,12 +11,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.databinding.FragmentListCharactersBinding
 import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ListCharactersFragment : Fragment() {
 
     private lateinit var binding: FragmentListCharactersBinding
-    private val viewModel : CharacterListViewModel = CharacterListViewModel(GetCharacterListUseCase())
+    //private val viewModel : CharacterListViewModel = CharacterListViewModel(GetCharacterListUseCase())
+    private val viewModel : CharacterListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

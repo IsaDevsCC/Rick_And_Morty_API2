@@ -13,7 +13,7 @@ class CellViewHolder(
     fun getCell(characterModel: CharacterModel/*, clicked: (CharacterModel) -> Unit*/) = with(cellview){
         tvName.text = characterModel.name
         tvStatus.text = characterModel.status
-        tvGenre.text = characterModel.genre
+        tvGenre.text = characterModel.gender
         tvSpecie.text = characterModel.specie
         Glide.with(root)
             .load(characterModel.photo)

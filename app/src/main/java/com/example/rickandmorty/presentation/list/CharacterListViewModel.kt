@@ -1,5 +1,6 @@
 package com.example.rickandmorty.presentation.list
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,5 +19,6 @@ class CharacterListViewModel(
 
     fun getData() = viewModelScope.launch(Dispatchers.IO) {
         _data.postValue(getUseCase.getCharacters())
+        Log.i("NODE", data.toString())
     }
 }

@@ -38,10 +38,10 @@ android {
 
 dependencies {
 
-    /*def navigationVersion = '2.5.3'
+    def navigationVersion = '2.5.3'
     def koinVersion = '3.4.2'
     def retrofitVersion = '2.9.0'
-    def roomVersion = '2.5.1'*/
+    def roomVersion = '2.5.1'
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -52,7 +52,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
-    /*
+
     // Android Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
@@ -83,9 +83,9 @@ dependencies {
     // Live Data compose
     implementation "androidx.compose.runtime:runtime-livedata:1.4.3"
 
-    /*implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'*/
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
