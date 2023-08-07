@@ -7,4 +7,15 @@ data class CharacterModel(
     val specie : String,
     val gender : String,
     val photo : String,
+    //val location : String,
+    //val location : LocationModel,
+    //val origin : List <OriginModel>,
 )
+
+/*data class LocationModel (
+    val name : String,
+)*/
+
+/*data class OriginModel (
+    val name : String,
+)*/

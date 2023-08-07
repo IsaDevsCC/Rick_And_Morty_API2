@@ -28,10 +28,10 @@ data class CharacterModelDTO (
 
 data class Origins (
     @Json(name = "name") val name : String?,
-    @Json(name = "url") val url : String?
+    //@Json(name = "url") val url : String?
 )
 
 data class Locations (
     @Json(name = "name") val name : String?,
-    @Json(name = "url") val url : String?
+    //@Json(name = "url") val url : String?
 )

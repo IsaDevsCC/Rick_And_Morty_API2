@@ -8,7 +8,7 @@ import com.example.rickandmorty.domain.model.CharacterModel
 
 class ListCharactersAdapter(
     private val list : List<CharacterModel>,
-    //private val clicked : (CharacterModel) -> Unit
+    private val clicked : (CharacterModel) -> Unit
 ) : RecyclerView.Adapter<CellViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CellViewHolder {
@@ -21,7 +21,7 @@ class ListCharactersAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: CellViewHolder, position: Int) { holder.getCell(list[position]/*, clicked*/) }
+    override fun onBindViewHolder(holder: CellViewHolder, position: Int) { holder.getCell(list[position], clicked) }
 
     override fun getItemCount(): Int = list.size
 }

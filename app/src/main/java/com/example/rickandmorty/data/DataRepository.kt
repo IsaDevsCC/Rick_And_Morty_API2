@@ -5,4 +5,5 @@ import com.example.rickandmorty.domain.model.CharacterModel
 interface DataRepository {
 
     suspend fun getAllData() : List<CharacterModel>
+    suspend fun getCharacterDetail(id : Int) : CharacterModel
 }

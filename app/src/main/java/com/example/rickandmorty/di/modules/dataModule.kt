@@ -1,7 +1,13 @@
 package com.example.rickandmorty.di.modules
 
+import android.content.Context
+import androidx.room.Room
 import com.example.rickandmorty.data.DataRepository
 import com.example.rickandmorty.data.DataRepositoryImpl
+import com.example.rickandmorty.data.local.ApiDAO
+import com.example.rickandmorty.data.local.LocalDataBase
+import com.example.rickandmorty.data.local.LocalDataSource
+import com.example.rickandmorty.data.local.LocalDataSourceImpl
 import com.example.rickandmorty.data.remote.ApiClient
 import com.example.rickandmorty.data.remote.ApiDataSource
 import com.example.rickandmorty.data.remote.ApiDataSourceImpl
@@ -37,12 +43,26 @@ val dataModule = module {
             .build()
     }
 
-    single <DataRepository>{ DataRepositoryImpl(get()) }
+    single <DataRepository>{ DataRepositoryImpl(get(), get()) }
 
     single <ApiDataSource> { ApiDataSourceImpl(get()) }
 
     single <ApiClient> { getApi(get()) }
+
+    single <LocalDataSource>{ LocalDataSourceImpl(get()) }
+
+    single { getDataBase(get()) }
+
+    single { getApiDao(get()) }
 }
 
 // retrofit instance
 private fun getApi(retrofit: Retrofit) = retrofit.create(ApiClient::class.java)
+
+private fun getDataBase(context: Context) : LocalDataBase =
+    Room.databaseBuilder(
+        context,
+        LocalDataBase::class.java, "rickandmorty-db"
+    ).build()
+
+private fun getApiDao(dataBase: LocalDataBase) : ApiDAO = dataBase.getApiDAO()

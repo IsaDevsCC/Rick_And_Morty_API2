@@ -7,4 +7,5 @@ interface ApiClient {
 
     @GET("character")
     suspend fun getAllData() : Data
+
 }

@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import com.example.rickandmorty.databinding.FragmentListCharactersBinding
 import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
@@ -40,7 +42,11 @@ class ListCharactersFragment : Fragment() {
     }
 
     private fun getStart(it: List<CharacterModel>) = with(binding){
-        rvFragmentCharacterList.adapter = ListCharactersAdapter(it)
+        rvFragmentCharacterList.adapter = ListCharactersAdapter(it) {
+            findNavController().navigate(
+                ListCharactersFragmentDirections.actionListCharactersFragmentToCharacterDetailFragment(it.id)
+            )
+        }
     }
 
 }

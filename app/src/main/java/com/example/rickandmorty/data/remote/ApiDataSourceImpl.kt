@@ -4,6 +4,6 @@ import com.example.rickandmorty.data.remote.dto.Data
 
 class ApiDataSourceImpl(
     private val apiClient : ApiClient
-) : ApiDataSource{
+) : ApiDataSource {
     override suspend fun getAllData(): Data = apiClient.getAllData()
 }
