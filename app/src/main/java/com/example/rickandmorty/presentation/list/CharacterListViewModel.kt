@@ -16,14 +16,7 @@ class CharacterListViewModel(
     private val _data : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())
     val data : LiveData<List<CharacterModel>> get() = _data
 
-   /* fun getData() = viewModelScope.launch(Dispatchers.IO) {
-        _data.value = getUseCase.getCharacters()
-    }*/
-
-    fun getData() {
-        viewModelScope.launch(Dispatchers.Main) {
-            //_data.value = getUseCase.getCharacters()
-            _data.postValue(getUseCase.getCharacters())
-        }
+    fun getData() = viewModelScope.launch(Dispatchers.IO) {
+        _data.postValue(getUseCase.getCharacters())
     }
 }
