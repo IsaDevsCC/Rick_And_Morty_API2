@@ -10,16 +10,11 @@ class DataRepositoryImpl(
     private val remote : ApiDataSource,
     private val local : LocalDataSource
 ) : DataRepository {
-    /*override suspend fun getAllData(): List<CharacterModel> = if(remote.getAllData().results.isNotEmpty()) {
-        remote.getAllData().results.map { it.toModel() }
-    } else {
-        listOf()
-    }*/
 
     override suspend fun getAllData(): List<CharacterModel> = if(local.getAll().isNotEmpty()) {
         local.getAll().map { it.toModel() }
     } else {
-        local.insertAll(remote.getAllData().results.map { it.toModelDAO() } )
+        local.insertAll(remote.getAllData().results.map { it.toModelDAO() })
         local.getAll().map { it.toModel() }
     }
 

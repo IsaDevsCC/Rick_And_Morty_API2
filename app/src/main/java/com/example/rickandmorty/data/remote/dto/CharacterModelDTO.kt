@@ -26,7 +26,7 @@ data class CharacterModelDTO (
     //@Json(name = "id") val id : Int,
 )
 
-data class Origins (
+/*data class Origins (
     @Json(name = "name") val name : String?,
     //@Json(name = "url") val url : String?
 )
@@ -34,4 +34,4 @@ data class Origins (
 data class Locations (
     @Json(name = "name") val name : String?,
     //@Json(name = "url") val url : String?
-)
+)*/
