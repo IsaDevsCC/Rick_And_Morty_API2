@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -34,8 +35,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -44,6 +48,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentLoginComposeBinding
 
 
@@ -68,121 +73,19 @@ class LoginFragmentCompose : Fragment() {
     }
     @Composable
     private fun LoginScreen() {
-
         SignIn()
         Login()
-
-        /*Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.White),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Image(
-                modifier = Modifier.size(150.dp),
-                painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentDescription = "SuperHero Application"
-            )
-
-            Spacer(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(15.dp)
-            )
-
-            TextField(
-                modifier = Modifier.testTag("LOGIN_TEXT_FIELD_USER"),
-                value = email,
-                placeholder = {
-                    Text("Email")
-                },
-                onValueChange = { newValue ->
-                    email = newValue
-                },
-                leadingIcon = {
-                    Image(
-                        imageVector = Icons.Default.Email,
-                        contentDescription = ""
-                    )
-                }
-            )
-
-            TextField(
-                modifier = Modifier.testTag("LOGIN_TEXT_FIELD_PASSWORD"),
-                value = password,
-                placeholder = {
-                    Text("Password")
-                },
-                onValueChange = {
-                    password = it
-                },
-                leadingIcon = {
-                    Icon(
-                        imageVector = Icons.Outlined.Lock,
-                        contentDescription = ""
-                    )
-                },
-                trailingIcon = {
-                    IconButton(
-                        onClick = {}
-                    ) {
-                        Icon(
-                            imageVector = Icons.Outlined.AccountBox,
-                            contentDescription = ""
-                        )
-                    }
-                }
-            )
-
-            Spacer(
-                modifier = Modifier
-                    .size(20.dp)
-            )
-
-            Button(
-                onClick = {
-                    /*if (authenticate(email, password)) {
-                        onLoginSuccess()
-                    }*/
-                }
-            ) {
-                Text(
-                    //text = stringResource(R.string.login)
-                    text = "login"
-                )
-            }
-            Spacer(
-                modifier = Modifier
-                    .size(20.dp)
-            )
-
-            /*Button(
-                onClick = {
-                    onForgotClicked.invoke(0)
-                }
-            ) {
-                Text(
-                    text = "Forgot"
-                )
-            }*/
-
-            /*
-            onClick = {
-            onLoginSuccess.invoke()
-            onLoginSuccess()
-            }
-            */
-
-
-        }*/
     }
 
 
     private @Composable
-    fun SignIn() {
-        Box(
-            modifier = Modifier.fillMaxSize()
+    fun SignIn() = Box(
+            modifier = with(Modifier){
+                    paint(
+                        painter = painterResource(id = R.drawable.rick_and_morty_background),
+                        contentScale = ContentScale.FillBounds
+                    ).fillMaxSize()
+            }
         ){
             ClickableText(
                 text = AnnotatedString("Sign In"),
@@ -192,17 +95,25 @@ class LoginFragmentCompose : Fragment() {
                 onClick = {},
                 style = TextStyle(
                     fontSize = 14.sp,
-                    fontFamily = FontFamily.Cursive,
+                    fontFamily = FontFamily.Monospace,
                     textDecoration = TextDecoration.Underline,
-                    color = Color.DarkGray
+                    color = Color.White
                 )
             )
         }
-    }
+
+    /*private @Composable
+    fun SetBackGround() = Image(
+            painter = painterResource(id = R.drawable.rick_and_morty_background),
+            modifier = Modifier.fillMaxSize(),
+            contentDescription = "",
+            contentScale = ContentScale.Fit
+        )*/
+
+
 
     private @Composable
     fun Login() {
-        //val email by remember { mutableStateOf(TextFieldValue()) }
         var email by remember { mutableStateOf(TextFieldValue()) }
         var password by remember { mutableStateOf(TextFieldValue()) }
 
@@ -213,12 +124,18 @@ class LoginFragmentCompose : Fragment() {
         ) {
             TextField(
                 value = email,
-                onValueChange = { email = it }
+                onValueChange = { email = it },
+                modifier = Modifier
+                    .alpha(0.8F)
+                    .background(Color.White)
             )
             Spacer()
             TextField(
                 value = password,
-                onValueChange = { password = it }
+                onValueChange = { password = it },
+                modifier = Modifier
+                    .alpha(0.8F)
+                    .background(Color.White)
             )
             Spacer()
             ButtonLogin()
@@ -227,12 +144,10 @@ class LoginFragmentCompose : Fragment() {
     }
 
     private @Composable
-    fun Spacer(){
-        Spacer(
+    fun Spacer() = Spacer(
             modifier = Modifier
                 .height(20.dp)
         )
-    }
 
     private @Composable
     fun ButtonLogin() = Box(
@@ -254,9 +169,9 @@ class LoginFragmentCompose : Fragment() {
         onClick = {},
         style = TextStyle(
             fontSize = 14.sp,
-            fontFamily = FontFamily.Monospace
+            fontFamily = FontFamily.Monospace,
+            color = Color.White
         )
     )
-
 
 }
