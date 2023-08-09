@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_listCharactersFragment_to_favsListFragmentCompose"
             app:destination="@id/favsListFragmentCompose" />
+        <action
+            android:id="@+id/action_listCharactersFragment_to_addNewCharacterFragment"
+            app:destination="@id/addNewCharacterFragment" />
 
     </fragment>
 
@@ -45,6 +48,12 @@
         android:name="com.example.rickandmorty.presentation.list.favs.FavsListFragmentCompose"
         android:label="fragment_favs_list_compose"
         tools:layout="@layout/fragment_favs_list_compose" />
+
+    <fragment
+        android:id="@+id/addNewCharacterFragment"
+        android:name="com.example.rickandmorty.presentation.adding.AddNewCharacterFragment"
+        android:label="fragment_add_new_character"
+        tools:layout="@layout/fragment_add_new_character" />
 
 
 </navigation>

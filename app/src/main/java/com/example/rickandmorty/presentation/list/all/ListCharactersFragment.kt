@@ -47,6 +47,9 @@ class ListCharactersFragment : Fragment() {
                 }
                 R.id.add -> {
                     Log.i("ADD", it.toString())
+                    findNavController().navigate(
+                        ListCharactersFragmentDirections.actionListCharactersFragmentToAddNewCharacterFragment()
+                    )
                     true
                 }
                 R.id.reset -> {
