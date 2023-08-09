@@ -1,13 +1,17 @@
 package com.example.rickandmorty.presentation.list
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.findNavController
 import com.example.rickandmorty.databinding.FragmentListCharactersBinding
@@ -33,20 +37,23 @@ class ListCharactersFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        viewModel.data.observe(viewLifecycleOwner){
-            getStart(it)
-        }
-
-        viewModel.getData()
+        addListeners()
     }
 
-    private fun getStart(it: List<CharacterModel>) = with(binding){
-        rvFragmentCharacterList.adapter = ListCharactersAdapter(it) {
+    private fun addListeners() = with(binding) {
+        etSearch.addTextChangedListener {
+            viewModel.data.observe(viewLifecycleOwner) {
+                getByNames(it)
+            }
+            viewModel.getData(etSearch.text.toString())
+        }
+    }
+
+    private fun getByNames(it: List<CharacterModel>) = with(binding){
+        rvFragmentCharacterList.adapter = ListCharactersAdapter(it){
             findNavController().navigate(
                 ListCharactersFragmentDirections.actionListCharactersFragmentToCharacterDetailFragment(it.id)
             )
         }
     }
-
 }

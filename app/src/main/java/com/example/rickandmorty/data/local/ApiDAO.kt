@@ -17,5 +17,8 @@ interface ApiDAO {
 
     @Query("SELECT * FROM characters WHERE id = :id")
     suspend fun getByCharacterById(id : Int) : CharacterModelDAO
+
+    @Query("SELECT * FROM characters WHERE name LIKE :name")
+    suspend fun getByCharacterName(name : String) : List<CharacterModelDAO>
 }
 

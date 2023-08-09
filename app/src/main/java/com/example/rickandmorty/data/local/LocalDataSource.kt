@@ -7,4 +7,5 @@ interface LocalDataSource {
     suspend fun getAll() : List<CharacterModelDAO>
     suspend fun insertAll(list: List<CharacterModelDAO>)
     suspend fun getCharacterById(id : Int): CharacterModelDAO
+    suspend fun getCharacterByName(name: String): List<CharacterModelDAO>
 }

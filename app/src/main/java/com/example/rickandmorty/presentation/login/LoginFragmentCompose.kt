@@ -48,8 +48,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.fragment.findNavController
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentLoginComposeBinding
+import org.koin.core.context.startKoin
 
 
 class LoginFragmentCompose : Fragment() {
@@ -114,6 +116,7 @@ class LoginFragmentCompose : Fragment() {
 
     private @Composable
     fun Login() {
+        val text = "ricksanchez@fantasymail.com"
         var email by remember { mutableStateOf(TextFieldValue()) }
         var password by remember { mutableStateOf(TextFieldValue()) }
 
@@ -127,7 +130,8 @@ class LoginFragmentCompose : Fragment() {
                 onValueChange = { email = it },
                 modifier = Modifier
                     .alpha(0.8F)
-                    .background(Color.White)
+                    .background(Color.White),
+                placeholder = { Text(text = text) }
             )
             Spacer()
             TextField(
@@ -135,7 +139,8 @@ class LoginFragmentCompose : Fragment() {
                 onValueChange = { password = it },
                 modifier = Modifier
                     .alpha(0.8F)
-                    .background(Color.White)
+                    .background(Color.White),
+                placeholder = { Text(text = text) }
             )
             Spacer()
             ButtonLogin()
@@ -153,7 +158,9 @@ class LoginFragmentCompose : Fragment() {
     fun ButtonLogin() = Box(
         modifier = Modifier
             .padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-                Button(onClick = {},
+                Button(onClick = {
+                    onClicked()
+                },
                 shape = RoundedCornerShape(50.dp),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -163,6 +170,7 @@ class LoginFragmentCompose : Fragment() {
                 }
         Spacer()
     }
+
     private @Composable
     fun ForgetPassword() = ClickableText(
         text = AnnotatedString("Olvidé mi contraseña"),
@@ -174,4 +182,9 @@ class LoginFragmentCompose : Fragment() {
         )
     )
 
+    private fun onClicked() {
+        findNavController().navigate(
+            LoginFragmentComposeDirections.actionLoginFragmentComposeToListCharactersFragment()
+        )
+    }
 }
