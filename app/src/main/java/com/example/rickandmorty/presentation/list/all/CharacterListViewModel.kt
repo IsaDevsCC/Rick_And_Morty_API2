@@ -7,12 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.DeleteCharacterByIdUseCase
 import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
+import com.example.rickandmorty.domain.usecase.ResetListUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CharacterListViewModel(
     private val getUseCase : GetCharacterListUseCase,
-    private val deleteUseCase : DeleteCharacterByIdUseCase
+    private val deleteUseCase : DeleteCharacterByIdUseCase,
+    private val resetUseCase : ResetListUseCase
 ) : ViewModel(){
 
     private val _data : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())
@@ -34,4 +36,7 @@ class CharacterListViewModel(
         _delete.postValue(deleteUseCase.deletebyId(id))
     }
 
+    fun getReset() = viewModelScope.launch(Dispatchers.IO) {
+        _data.postValue(resetUseCase.resetList())
+    }
 }

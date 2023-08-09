@@ -10,4 +10,5 @@ interface LocalDataSource {
     suspend fun addToFavCharacter(id: Int, fav : Boolean)
     suspend fun getFavList() : List<CharacterModelDAO>
     suspend fun deleteById(id : Int)
+    suspend fun deleteAll()
 }

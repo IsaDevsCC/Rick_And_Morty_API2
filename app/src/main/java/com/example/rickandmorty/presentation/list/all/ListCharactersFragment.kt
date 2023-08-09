@@ -45,12 +45,27 @@ class ListCharactersFragment : Fragment() {
                     )
                     true
                 }
-
+                R.id.add -> {
+                    Log.i("ADD", it.toString())
+                    true
+                }
+                R.id.reset -> {
+                    Log.i("RESET", it.toString())
+                    resetAllList()
+                    true
+                }
                 else -> {
                     false
                 }
             }
         }
+    }
+
+    private fun resetAllList() {
+        viewModel.data.observe(viewLifecycleOwner){
+            addListeners()
+        }
+        viewModel.getReset()
     }
 
     private fun addListeners() = with(binding) {
@@ -62,7 +77,6 @@ class ListCharactersFragment : Fragment() {
         }
     }
 
-    // TODO : --> COMO INVOCAR UNA FUNCIÓN CON MÚLTIPLES LAMBDAS
     private fun getByNames(list: List<CharacterModel>) = with(binding) {
         rvFragmentCharacterList.adapter = ListCharactersAdapter(
             list = list,

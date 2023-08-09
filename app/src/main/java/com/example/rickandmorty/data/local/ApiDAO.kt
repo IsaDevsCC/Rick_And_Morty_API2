@@ -26,5 +26,8 @@ interface ApiDAO {
 
     @Query("DELETE FROM characters WHERE id = :id")
     suspend fun deleteById(id : Int)
+
+    @Query("DELETE FROM characters")
+    suspend fun deleteAll()
 }
 
