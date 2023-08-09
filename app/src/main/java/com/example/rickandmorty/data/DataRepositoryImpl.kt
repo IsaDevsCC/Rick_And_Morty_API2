@@ -19,5 +19,6 @@ class DataRepositoryImpl(
     }
 
     override suspend fun getCharacterDetail(id: Int): CharacterModel = local.getCharacterById(id).toModel()
-    override suspend fun getCharacterByName(name: String): List<CharacterModel> = local.getCharacterByName(name).map { it.toModel() }
+    override suspend fun addCharacterToFav(id: Int, fav: Boolean) = local.addToFavCharacter(id, fav)
+
 }

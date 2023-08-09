@@ -2,6 +2,7 @@ package com.example.rickandmorty.presentation.detail
 
 import android.os.Binder
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -37,17 +38,29 @@ class CharacterDetailFragment : Fragment() {
         viewModel.getDetail(args.characterId)
     }
 
-    private fun getDetail(it: CharacterModel) = with(binding) {
-        tvName.text = it.name
-        tvStatus.text = it.status
-        tvGenre.text = it.gender
-        tvSpecie.text = it.specie
+    private fun getDetail(character : CharacterModel) = with(binding) {
+        tvName.text = character.name
+        tvStatus.text = character.status
+        tvGenre.text = character.gender
+        tvSpecie.text = character.specie
 
         Glide.with(root)
-            .load(it.photo)
+            .load(character.photo)
             .placeholder(R.drawable.ic_launcher_background)
             .into(ivPhoto)
 
+        btFav.setOnClickListener {
+            addToFav(character.id, !character.favorite)
+        }
     }
+
+    private fun addToFav(id: Int, fav: Boolean) {
+        viewModel.set.observe(viewLifecycleOwner) {
+            it
+        }
+        viewModel.addToFavCharacter(id, fav)
+        Log.i("FAV", "$id, $fav")
+    }
+
 
 }

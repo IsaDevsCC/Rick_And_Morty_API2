@@ -7,5 +7,5 @@ import org.koin.dsl.module
 
 val presentationModule = module {
     viewModel { CharacterListViewModel(get()) }
-    viewModel { CharacterDetailViewModel(get()) }
+    viewModel { CharacterDetailViewModel(get(), get())}
 }

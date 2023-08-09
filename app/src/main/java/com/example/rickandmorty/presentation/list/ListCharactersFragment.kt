@@ -37,6 +37,11 @@ class ListCharactersFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /*viewModel.data.observe(viewLifecycleOwner) {
+            getByNames(it)
+        }
+        //viewModel.getData(etSearch.text.toString())
+        viewModel.getData()*/
         addListeners()
     }
 
@@ -46,6 +51,7 @@ class ListCharactersFragment : Fragment() {
                 getByNames(it)
             }
             viewModel.getData(etSearch.text.toString())
+            //viewModel.getData()
         }
     }
 
