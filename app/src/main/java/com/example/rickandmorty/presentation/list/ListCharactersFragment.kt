@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.compose.ui.layout.LookaheadLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +15,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.findNavController
+import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentListCharactersBinding
 import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
@@ -37,13 +39,30 @@ class ListCharactersFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /*viewModel.data.observe(viewLifecycleOwner) {
-            getByNames(it)
-        }
-        //viewModel.getData(etSearch.text.toString())
-        viewModel.getData()*/
         addListeners()
+        addNavigationButton()
     }
+
+    private fun addNavigationButton() = with(binding) {
+        navView.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.fav_icon -> {
+                    //openView(FavsListFragmentCompose.getFragment())
+                    Log.i("NAV", it.toString())
+                    findNavController().navigate(
+                        ListCharactersFragmentDirections.actionListCharactersFragmentToFavsListFragmentCompose()
+                    )
+                    true
+                }
+
+                else -> {false}
+            }
+        }
+    }
+
+    /*private fun openView(fragment: FavsListFragmentCompose){
+        val transaction = supportFragmentManager.beginTransaction()
+    }*/
 
     private fun addListeners() = with(binding) {
         etSearch.addTextChangedListener {

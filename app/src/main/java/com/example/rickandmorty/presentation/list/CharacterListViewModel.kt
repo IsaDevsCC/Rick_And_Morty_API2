@@ -20,9 +20,9 @@ class CharacterListViewModel(
     private val _filter : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())
     val filter : LiveData<List<CharacterModel>> get() = _filter
 
-    fun getData(name: String?) = viewModelScope.launch(Dispatchers.IO) {
+    fun getData(name: String) = viewModelScope.launch(Dispatchers.IO) {
     //fun getData() = viewModelScope.launch(Dispatchers.IO) {
-        _data.postValue(if (name!!.isNotEmpty()) { getUseCase.getCharacters().filter { it.name.contains(name) } }
+        _data.postValue(if (name.isNotEmpty()) { getUseCase.getCharacters().filter { it.name.contains(name) } }
                             else getUseCase.getCharacters())
 
         //_data.postValue(getUseCase.getCharacters())

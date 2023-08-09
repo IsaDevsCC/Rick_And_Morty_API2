@@ -10,5 +10,6 @@ class LocalDataSourceImpl(
     override suspend fun insertAll(list: List<CharacterModelDAO>) = apiDAO.insertInto(list)
     override suspend fun getCharacterById(id: Int): CharacterModelDAO = apiDAO.getByCharacterById(id)
     override suspend fun addToFavCharacter(id: Int, fav: Boolean) = apiDAO.addCharacterToAdd(id,fav)
+    override suspend fun getFavList(): List<CharacterModelDAO> = apiDAO.getFavList()
 
 }

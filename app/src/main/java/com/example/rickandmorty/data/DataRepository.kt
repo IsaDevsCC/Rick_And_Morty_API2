@@ -7,4 +7,5 @@ interface DataRepository {
     suspend fun getAllData() : List<CharacterModel>
     suspend fun getCharacterDetail(id : Int) : CharacterModel
     suspend fun addCharacterToFav(id: Int, fav : Boolean)
+    suspend fun getFavList() : List<CharacterModel>
 }

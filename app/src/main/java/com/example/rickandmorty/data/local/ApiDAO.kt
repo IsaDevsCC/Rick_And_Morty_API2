@@ -20,5 +20,8 @@ interface ApiDAO {
 
     @Query("UPDATE characters SET favorite = :fav WHERE id = :id")
     suspend fun addCharacterToAdd(id : Int, fav : Boolean)
+
+    @Query("SELECT * FROM characters WHERE favorite = 1")
+    suspend fun getFavList() : List<CharacterModelDAO>
 }
 

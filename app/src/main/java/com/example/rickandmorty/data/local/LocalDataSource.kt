@@ -8,4 +8,5 @@ interface LocalDataSource {
     suspend fun insertAll(list: List<CharacterModelDAO>)
     suspend fun getCharacterById(id : Int): CharacterModelDAO
     suspend fun addToFavCharacter(id: Int, fav : Boolean)
+    suspend fun getFavList() : List<CharacterModelDAO>
 }
