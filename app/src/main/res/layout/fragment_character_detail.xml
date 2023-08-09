@@ -90,7 +90,7 @@
         android:id="@+id/tvGenreTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genre"
+        android:text="@string/genre"
         android:textSize="16sp"
         android:layout_margin="20dp"
         app:layout_constraintTop_toBottomOf="@id/tvSpecieTag"
@@ -109,15 +109,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <ToggleButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btFav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/favorite"
-        android:background="#673AB7"
-        android:layout_marginTop="30dp"
-        android:textSize="12dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:tintMode="src_atop"
+        android:backgroundTint="#F321B8"
+        android:tint="#E91E63"
+        android:src="@drawable/ic_action_favs"
         app:layout_constraintTop_toBottomOf="@+id/tvGenre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

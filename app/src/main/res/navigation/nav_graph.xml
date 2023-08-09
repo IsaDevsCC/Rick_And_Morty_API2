@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/listCharactersFragment"
-        android:name="com.example.rickandmorty.presentation.list.ListCharactersFragment"
+        android:name="com.example.rickandmorty.presentation.list.all.ListCharactersFragment"
         android:label="fragment_list_characters"
         tools:layout="@layout/fragment_list_characters" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/favsListFragmentCompose"
-        android:name="com.example.rickandmorty.presentation.list.FavsListFragmentCompose"
+        android:name="com.example.rickandmorty.presentation.list.favs.FavsListFragmentCompose"
         android:label="fragment_favs_list_compose"
         tools:layout="@layout/fragment_favs_list_compose" />
 

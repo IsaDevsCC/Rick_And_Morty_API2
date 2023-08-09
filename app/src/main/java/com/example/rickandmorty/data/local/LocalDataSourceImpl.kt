@@ -11,5 +11,6 @@ class LocalDataSourceImpl(
     override suspend fun getCharacterById(id: Int): CharacterModelDAO = apiDAO.getByCharacterById(id)
     override suspend fun addToFavCharacter(id: Int, fav: Boolean) = apiDAO.addCharacterToAdd(id,fav)
     override suspend fun getFavList(): List<CharacterModelDAO> = apiDAO.getFavList()
+    override suspend fun deleteById(id: Int) = apiDAO.deleteById(id)
 
 }

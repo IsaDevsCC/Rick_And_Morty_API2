@@ -1,4 +1,4 @@
-package com.example.rickandmorty.presentation.list
+package com.example.rickandmorty.presentation.list.favs
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

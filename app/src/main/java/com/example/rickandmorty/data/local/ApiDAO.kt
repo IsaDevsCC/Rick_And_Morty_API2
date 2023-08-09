@@ -23,5 +23,8 @@ interface ApiDAO {
 
     @Query("SELECT * FROM characters WHERE favorite = 1")
     suspend fun getFavList() : List<CharacterModelDAO>
+
+    @Query("DELETE FROM characters WHERE id = :id")
+    suspend fun deleteById(id : Int)
 }
 

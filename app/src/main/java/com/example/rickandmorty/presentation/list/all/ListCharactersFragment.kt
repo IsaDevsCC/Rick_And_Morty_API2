@@ -1,4 +1,4 @@
-package com.example.rickandmorty.presentation.list
+package com.example.rickandmorty.presentation.list.all
 
 import android.os.Bundle
 import android.util.Log
@@ -6,27 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
-import androidx.compose.ui.layout.LookaheadLayout
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.findNavController
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentListCharactersBinding
 import com.example.rickandmorty.domain.model.CharacterModel
-import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ListCharactersFragment : Fragment() {
 
     private lateinit var binding: FragmentListCharactersBinding
+
     //private val viewModel : CharacterListViewModel = CharacterListViewModel(GetCharacterListUseCase())
-    private val viewModel : CharacterListViewModel by viewModel()
+    private val viewModel: CharacterListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +27,6 @@ class ListCharactersFragment : Fragment() {
     ): View {
 
         binding = FragmentListCharactersBinding.inflate(layoutInflater)
-
         return binding.root
     }
 
@@ -45,9 +37,8 @@ class ListCharactersFragment : Fragment() {
 
     private fun addNavigationButton() = with(binding) {
         navView.setOnNavigationItemSelectedListener {
-            when(it.itemId) {
-                R.id.fav_icon -> {
-                    //openView(FavsListFragmentCompose.getFragment())
+            when (it.itemId) {
+                R.id.favs -> {
                     Log.i("NAV", it.toString())
                     findNavController().navigate(
                         ListCharactersFragmentDirections.actionListCharactersFragmentToFavsListFragmentCompose()
@@ -55,14 +46,12 @@ class ListCharactersFragment : Fragment() {
                     true
                 }
 
-                else -> {false}
+                else -> {
+                    false
+                }
             }
         }
     }
-
-    /*private fun openView(fragment: FavsListFragmentCompose){
-        val transaction = supportFragmentManager.beginTransaction()
-    }*/
 
     private fun addListeners() = with(binding) {
         etSearch.addTextChangedListener {
@@ -70,15 +59,23 @@ class ListCharactersFragment : Fragment() {
                 getByNames(it)
             }
             viewModel.getData(etSearch.text.toString())
-            //viewModel.getData()
         }
     }
 
-    private fun getByNames(it: List<CharacterModel>) = with(binding){
-        rvFragmentCharacterList.adapter = ListCharactersAdapter(it){
+    // TODO : --> COMO INVOCAR UNA FUNCIÓN CON MÚLTIPLES LAMBDAS
+    private fun getByNames(list: List<CharacterModel>) = with(binding) {
+        rvFragmentCharacterList.adapter = ListCharactersAdapter(
+            list = list,
+            clicked = { value ->
             findNavController().navigate(
-                ListCharactersFragmentDirections.actionListCharactersFragmentToCharacterDetailFragment(it.id)
+                ListCharactersFragmentDirections.actionListCharactersFragmentToCharacterDetailFragment(
+                    value.id
+                )
             )
-        }
+        },
+        onDelete = { value ->
+            viewModel.delete.observe(viewLifecycleOwner){}
+            viewModel.deleteData(value.id)
+        })
     }
 }

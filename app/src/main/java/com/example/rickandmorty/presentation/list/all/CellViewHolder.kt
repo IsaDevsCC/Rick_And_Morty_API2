@@ -1,4 +1,4 @@
-package com.example.rickandmorty.presentation.list
+package com.example.rickandmorty.presentation.list.all
 
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +11,7 @@ class CellViewHolder(
     private val cellview : CellViewBinding
 ) : RecyclerView.ViewHolder(cellview.root) {
 
-    fun getCell(characterModel: CharacterModel, clicked: (CharacterModel) -> Unit) = with(cellview){
+    fun getCell(characterModel: CharacterModel, clicked: (CharacterModel) -> Unit, onDelete : (CharacterModel) -> Unit) = with(cellview){
         tvName.text = characterModel.name
         tvStatus.text = characterModel.status
         tvGenre.text = characterModel.gender
@@ -26,7 +26,11 @@ class CellViewHolder(
             Log.i("CLICKED", "${characterModel.name} was clicked")
             clicked(characterModel)
         }
-    }
 
+        btDelete.setOnClickListener {
+            Log.i("DELETE", "${characterModel.name} was clicked")
+            onDelete(characterModel)
+        }
+    }
 
 }

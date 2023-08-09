@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/fav_icon" android:title="@string/favorite" android:icon="@drawable/common_google_signin_btn_icon_dark"/>
-    <item android:id="@+id/profile_icon" android:title="@string/favorite" android:icon="@drawable/common_google_signin_btn_icon_dark_normal"/>
-    <item android:id="@+id/location_icon" android:title="@string/favorite" android:icon="@drawable/common_google_signin_btn_icon_disabled"/>
+    <item android:id="@+id/favs" android:title="@string/favorite" android:icon="@drawable/ic_action_favs"/>
+    <item android:id="@+id/add" android:title="@string/add" android:icon="@drawable/ic_add"/>
+    <item android:id="@+id/reset" android:title="@string/reset" android:icon="@drawable/ic_reset"/>
 </menu>

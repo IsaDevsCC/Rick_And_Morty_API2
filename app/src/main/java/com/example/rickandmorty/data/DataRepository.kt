@@ -8,4 +8,5 @@ interface DataRepository {
     suspend fun getCharacterDetail(id : Int) : CharacterModel
     suspend fun addCharacterToFav(id: Int, fav : Boolean)
     suspend fun getFavList() : List<CharacterModel>
+    suspend fun deleteById(id : Int)
 }

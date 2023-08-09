@@ -11,6 +11,7 @@ class DataRepositoryImpl(
     private val local : LocalDataSource
 ) : DataRepository {
 
+// TODO ---> VALIDACIÓN DE ERRORES DESDE ACA!!!
     override suspend fun getAllData(): List<CharacterModel> = if(local.getAll().isNotEmpty()) {
         local.getAll().map { it.toModel() }
     } else {
@@ -21,5 +22,7 @@ class DataRepositoryImpl(
     override suspend fun getCharacterDetail(id: Int): CharacterModel = local.getCharacterById(id).toModel()
     override suspend fun addCharacterToFav(id: Int, fav: Boolean) = local.addToFavCharacter(id, fav)
     override suspend fun getFavList(): List<CharacterModel> = local.getFavList().map { it.toModel() }
+    override suspend fun deleteById(id: Int) = local.deleteById(id)
+
 
 }
