@@ -8,13 +8,15 @@ import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.DeleteCharacterByIdUseCase
 import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
 import com.example.rickandmorty.domain.usecase.ResetListUseCase
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
 
 class CharacterListViewModel(
     private val getUseCase : GetCharacterListUseCase,
     private val deleteUseCase : DeleteCharacterByIdUseCase,
-    private val resetUseCase : ResetListUseCase
+    private val resetUseCase : ResetListUseCase,
 ) : ViewModel(){
 
     private val _data : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())

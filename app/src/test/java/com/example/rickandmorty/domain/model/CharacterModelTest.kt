@@ -1,6 +1,5 @@
 package com.example.rickandmorty.domain.model
 
-import org.hamcrest.CoreMatchers.instanceOf
 import org.hamcrest.MatcherAssert.*
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.notNullValue
@@ -46,21 +45,19 @@ class CharacterModelTest {
     }
 
     @Test
-    fun `WHEN get model Name not EXPECT another value`(){
-        Assert.assertTrue(characterModel.name, true)
+    fun `WHEN get model Name  EXPECT unique value`(){
+        Assert.assertEquals("Rick Sanchez",characterModel.name)
     }
 
     @Test
     fun `WHEN get model Status EXPECT not null value`(){
-        val aux = "Alive"
-        val not = "Dead"
-        assertThat(characterModel.status, `is`(aux))
-        Assert.assertFalse(characterModel.status,characterModel.status.equals(not))
+        assertThat(characterModel.status, notNullValue())
     }
 
     @Test
     fun `WHEN get model Status EXPECT right value`(){
-        assertThat(characterModel.status, notNullValue())
+        val aux = "Alive"
+        assertThat(characterModel.status, `is`(aux))
     }
 
     @Test

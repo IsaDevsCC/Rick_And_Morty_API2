@@ -4,30 +4,29 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.rickandmorty.domain.usecase.DeleteCharacterByIdUseCase
 import com.example.rickandmorty.domain.usecase.GetCharacterListUseCase
 import com.example.rickandmorty.domain.usecase.ResetListUseCase
-import com.example.rickandmorty.utils.DefaultDispatcherRule
+import com.example.rickandmorty.utils.MainDispatcherRule
 import com.example.rickandmorty.utils.TestBuilder
 import com.example.rickandmorty.utils.getOrAwaitValue
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.MatcherAssert.*
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-
-@ExperimentalCoroutinesApi
 class CharacterListViewModelTest {
 
-    @get : Rule
+    @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    @get : Rule
-    val defaultDispatcherRule = DefaultDispatcherRule()
+    @get:Rule
+    val mainDispatcherRule = MainDispatcherRule()
 
     @MockK(relaxed = true)
     private lateinit var getCharacterListUseCase : GetCharacterListUseCase
@@ -37,6 +36,7 @@ class CharacterListViewModelTest {
 
     @MockK(relaxed = true)
     private lateinit var resetUseCase : ResetListUseCase
+
 
     @Before
     fun setUp() {
@@ -49,7 +49,7 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `WHEN viewModel init EXPECT data at LiveData`() = run {
+    fun `WHEN viewModel init EXPECT data at LiveData`() = runTest() {
         coEvery { getCharacterListUseCase.getCharacters() } returns TestBuilder()
             .withElements(18)
             .buildModelList()
@@ -58,6 +58,6 @@ class CharacterListViewModelTest {
 
         val response = viewModel.data.getOrAwaitValue()
 
-        Assert.assertEquals(response.size, 18)
+        Assert.assertEquals(18, response.size)
     }
 }
