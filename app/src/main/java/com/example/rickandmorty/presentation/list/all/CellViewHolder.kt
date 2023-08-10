@@ -1,6 +1,7 @@
 package com.example.rickandmorty.presentation.list.all
 
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickandmorty.R

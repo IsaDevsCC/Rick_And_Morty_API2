@@ -101,6 +101,6 @@ class ListCharactersFragment : Fragment() {
         onDelete = { value ->
             viewModel.delete.observe(viewLifecycleOwner){}
             viewModel.deleteData(value.id)
-        })
+        } )
     }
 }

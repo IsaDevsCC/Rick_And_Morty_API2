@@ -29,12 +29,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.rickandmorty.databinding.FragmentAddNewCharacterBinding
 import com.example.rickandmorty.domain.model.CharacterModel
+import com.example.rickandmorty.theme.fonts
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AddNewCharacterFragmentCompose : Fragment() {
@@ -117,8 +117,12 @@ class AddNewCharacterFragmentCompose : Fragment() {
             )
             Space()
             Space()
-            val character = CharacterModel(52, name.text, status.text, specie.text, gender.text, "", false)
-            ButtonRegister(character)
+
+            if (name.text.isNotEmpty() || status.text.isNotEmpty() || specie.text.isNotEmpty() || gender.text.isNotEmpty()) {
+                val photo = "https://rickandmortyapi.com/api/character/avatar/183.jpeg"
+                val character = CharacterModel(52, name.text, status.text, specie.text, gender.text, photo, false)
+                ButtonRegister(character)
+            }
         }
     }
 
@@ -131,7 +135,10 @@ class AddNewCharacterFragmentCompose : Fragment() {
     private fun GetText(string : String) {
         Text(
             text = string,
-            style = TextStyle(fontSize = 20.sp, fontFamily = FontFamily.Monospace)
+            style = TextStyle(
+                fontSize = 32.sp,
+                fontFamily = fonts,
+            )
         )
     }
 
@@ -163,7 +170,7 @@ class AddNewCharacterFragmentCompose : Fragment() {
                 text = "Add",
                 style = TextStyle(
                     fontSize = 20.sp,
-                    fontFamily = FontFamily.Monospace,
+                    fontFamily = fonts,
                     textDecoration = TextDecoration.None,
                     color = Color.White
                 )
