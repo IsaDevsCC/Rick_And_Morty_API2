@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,6 +31,7 @@ import coil.request.ImageRequest
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentFavsListComposeBinding
 import com.example.rickandmorty.domain.model.CharacterModel
+import org.koin.androidx.compose.koinViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -70,13 +72,13 @@ class FavsListFragmentCompose : Fragment() {
     }
 
     @Composable
-    private fun MakeList() {
-        //val viewModel : FavsListComposeViewModel = koinViewModel()
-        //val list = viewModel.data.observeAsState()
+    fun MakeList() {
+        val viewModel : FavsListComposeViewModel = koinViewModel()
+        val list = viewModel.data.observeAsState()
         //viewModel.data.observe(viewLifecycleOwner) {
         //}
        // viewModel.getList()
-        val list = viewModel.data
+        //val list = viewModel.data
 
         LazyColumn(
             modifier = Modifier.padding(

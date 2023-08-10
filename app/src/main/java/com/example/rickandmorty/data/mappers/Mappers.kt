@@ -12,13 +12,8 @@ fun CharacterModelDTO.toModel() = CharacterModel(
     gender = gender ?: "",
     photo = image ?: "",
     favorite = false
-    //location = location ?: null,
-    //origin = (origin ?: ",") as List<CharacterModel.OriginModel>
 )
 
-/*fun Locations.toLocationModel() = LocationModel (
-    name = name ?: "",
-)*/
 
 fun CharacterModelDAO.toModel() = CharacterModel (
     id = id,
@@ -28,8 +23,6 @@ fun CharacterModelDAO.toModel() = CharacterModel (
     gender = gender ?: "",
     photo = photo ?: "",
     favorite = favorite,
-    //location = locations ?: listOf(),
-    //origin = (origins ?: ",") as List<CharacterModel.OriginModel>
 )
 
 fun CharacterModelDTO.toModelDAO() = CharacterModelDAO(
@@ -40,8 +33,6 @@ fun CharacterModelDTO.toModelDAO() = CharacterModelDAO(
     gender = gender ?: "",
     photo = image ?: "",
     favorite = false,
-    //locations = location ?: null,
-    //origins = (origin ?: ",") as List<CharacterModel.OriginModel>
 )
 
 fun CharacterModel.toModelDAO() = CharacterModelDAO(

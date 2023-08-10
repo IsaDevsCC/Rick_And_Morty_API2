@@ -32,8 +32,8 @@ class ListCharactersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         addListeners()
-        addNavigationButton()
         addFilter()
+        addNavigationButton()
     }
 
     private fun addNavigationButton() = with(binding) {

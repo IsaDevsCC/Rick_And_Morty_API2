@@ -31,6 +31,7 @@ class CharacterDetailViewModelTest {
     @MockK(relaxed = true)
     private lateinit var addToFavUseCase : AddToFavUseCase
 
+
     @Before
     fun setUp() {
         MockKAnnotations.init(this)

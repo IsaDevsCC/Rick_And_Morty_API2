@@ -18,6 +18,7 @@ class CharacterListViewModel(
     private val getUseCase : GetCharacterListUseCase,
     private val deleteUseCase : DeleteCharacterByIdUseCase,
     private val resetUseCase : ResetListUseCase,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel(){
 
     private val _data : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())
@@ -35,21 +36,19 @@ class CharacterListViewModel(
     }
     // TODO --> RETRY
 
-    fun getFilter(name: String) = viewModelScope.launch(Dispatchers.IO) {
-        //_data.postValue(if (name.isNotEmpty()) { getUseCase.getCharacters().filter { it.name.contains(name) } }
-                            //else getUseCase.getCharacters())
+    fun getFilter(name: String) = viewModelScope.launch(dispatcher) {
         _data.postValue(getUseCase.getCharacters().filter { it.name.contains(name) })
     }
 
-    fun getData() = viewModelScope.launch(Dispatchers.IO) {
+    fun getData() = viewModelScope.launch(dispatcher) {
         _data.postValue(getUseCase.getCharacters())
     }
 
-    fun deleteData(id : Int) = viewModelScope.launch(Dispatchers.IO) {
+    fun deleteData(id : Int) = viewModelScope.launch(dispatcher) {
         _delete.postValue(deleteUseCase.deletebyId(id))
     }
 
-    fun getReset() = viewModelScope.launch(Dispatchers.IO) {
+    fun getReset() = viewModelScope.launch(dispatcher) {
         _data.postValue(resetUseCase.resetList())
     }
 }

@@ -27,7 +27,6 @@ class DataRepositoryImpl(
     override suspend fun deleteAll() : List<CharacterModel> {
         local.deleteAll()
         local.insertAll(remote.getAllData().results.map { it.toModelDAO() })
-        //local.getAll().map { it.toModel() }
 
         return local.getAll().map { it.toModel() }
     }
