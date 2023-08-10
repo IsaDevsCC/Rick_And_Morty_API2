@@ -71,14 +71,22 @@ class ListCharactersFragment : Fragment() {
         viewModel.getReset()
     }
 
-    private fun addListeners() = with(binding) {
+    /*private fun addListeners() = with(binding) {
         etSearch.addTextChangedListener {
             viewModel.data.observe(viewLifecycleOwner) {
                 getByNames(it)
             }
             viewModel.getData(etSearch.text.toString())
         }
-    }
+    }*/
+
+    private fun addListeners() = with(binding) {
+            viewModel.data.observe(viewLifecycleOwner) {
+                getByNames(it)
+            }
+            viewModel.getData()
+        }
+    //}
 
     private fun getByNames(list: List<CharacterModel>) = with(binding) {
         rvFragmentCharacterList.adapter = ListCharactersAdapter(

@@ -11,9 +11,8 @@ import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.GetNewCharacterUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.reflect.MalformedParametersException
 
-class AddNewCharacterViewModel(
+class AddNewCharacterViewModelCompose(
     private val useCase : GetNewCharacterUseCase
 ) : ViewModel() {
 
@@ -22,7 +21,6 @@ class AddNewCharacterViewModel(
 
     // TODO HACER VALIDACIÓN DE ERRORES
 
-    @RequiresApi(Build.VERSION_CODES.P)
     fun addNewCharacter(characterModel : CharacterModel) = viewModelScope.launch(Dispatchers.IO) {
         try {
             _character.postValue(characterModel)

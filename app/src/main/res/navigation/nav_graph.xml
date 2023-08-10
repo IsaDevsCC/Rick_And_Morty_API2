@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/addNewCharacterFragment"
-        android:name="com.example.rickandmorty.presentation.adding.AddNewCharacterFragment"
+        android:name="com.example.rickandmorty.presentation.adding.AddNewCharacterFragmentCompose"
         android:label="fragment_add_new_character"
         tools:layout="@layout/fragment_add_new_character" />
 

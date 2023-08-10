@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout.Spec
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,16 +33,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.fragment.findNavController
 import com.example.rickandmorty.databinding.FragmentAddNewCharacterBinding
 import com.example.rickandmorty.domain.model.CharacterModel
-import com.example.rickandmorty.presentation.login.LoginFragmentComposeDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AddNewCharacterFragment : Fragment() {
+class AddNewCharacterFragmentCompose : Fragment() {
 
     private lateinit var binding : FragmentAddNewCharacterBinding
-    private val viewModel : AddNewCharacterViewModel by viewModel()
+    private val viewModel : AddNewCharacterViewModelCompose by viewModel()
     
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

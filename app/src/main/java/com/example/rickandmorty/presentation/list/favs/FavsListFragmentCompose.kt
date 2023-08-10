@@ -50,7 +50,7 @@ class FavsListFragmentCompose : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        //startObserver()
+        startObserver()
 
         binding.cvFavoriteList.setContent {
             PrintList()
@@ -73,9 +73,9 @@ class FavsListFragmentCompose : Fragment() {
     private fun MakeList() {
         //val viewModel : FavsListComposeViewModel = koinViewModel()
         //val list = viewModel.data.observeAsState()
-        viewModel.data.observe(viewLifecycleOwner) {
-        }
-        viewModel.getList()
+        //viewModel.data.observe(viewLifecycleOwner) {
+        //}
+       // viewModel.getList()
         val list = viewModel.data
 
         LazyColumn(
