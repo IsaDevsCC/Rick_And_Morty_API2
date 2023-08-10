@@ -154,7 +154,7 @@ class LoginFragmentCompose : Fragment() {
                 .height(20.dp)
         )
 
-    private @Composable
+    @Composable
     fun ButtonLogin() = Box(
         modifier = Modifier
             .padding(40.dp, 0.dp, 40.dp, 0.dp)) {

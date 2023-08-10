@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout.Spec
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.ui.text.input.TextFieldValue
@@ -25,9 +30,12 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.fragment.findNavController
 import com.example.rickandmorty.databinding.FragmentAddNewCharacterBinding
+import com.example.rickandmorty.presentation.login.LoginFragmentComposeDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AddNewCharacterFragment : Fragment() {
@@ -75,6 +83,42 @@ class AddNewCharacterFragment : Fragment() {
                     .background(Color.White),
                 placeholder = { Text(text = "Name") }
             )
+            Space()
+            GetText(string = "Status")
+            Space()
+            TextField(
+                value = status,
+                onValueChange = { status = it },
+                modifier = Modifier
+                    .alpha(0.8F)
+                    .background(Color.White),
+                placeholder = { Text(text = "Status") }
+            )
+            Space()
+            GetText(string = "Specie")
+            Space()
+            TextField(
+                value = specie,
+                onValueChange = { specie = it },
+                modifier = Modifier
+                    .alpha(0.8F)
+                    .background(Color.White),
+                placeholder = { Text(text = "Specie") }
+            )
+            Space()
+            GetText(string = "Gender")
+            Space()
+            TextField(
+                value = gender,
+                onValueChange = { gender = it },
+                modifier = Modifier
+                    .alpha(0.8F)
+                    .background(Color.White),
+                placeholder = { Text(text = "Gender") }
+            )
+            Space()
+            Space()
+            ButtonRegister()
         }
     }
 
@@ -102,4 +146,34 @@ class AddNewCharacterFragment : Fragment() {
             placeholder = { Text(text = "Name") }
         )
     }*/
+
+    @Composable
+    fun ButtonRegister() = Box(
+        modifier = Modifier
+            .padding(40.dp, 0.dp, 40.dp, 0.dp)) {
+        Button(onClick = {
+            onClicked()
+        },
+            shape = RoundedCornerShape(50.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(60.dp)
+        ) {
+            Text(
+                text = "Add",
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    fontFamily = FontFamily.Monospace,
+                    textDecoration = TextDecoration.None,
+                    color = Color.White
+                )
+            )
+        }
+    }
+
+    private fun onClicked() {
+        findNavController().navigate(
+            LoginFragmentComposeDirections.actionLoginFragmentComposeToListCharactersFragment()
+        )
+    }
 }
