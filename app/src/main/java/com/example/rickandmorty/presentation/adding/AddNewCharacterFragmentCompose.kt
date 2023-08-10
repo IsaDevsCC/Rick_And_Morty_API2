@@ -33,7 +33,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.rickandmorty.databinding.FragmentAddNewCharacterBinding
-import com.example.rickandmorty.domain.model.CharacterModel
+import com.example.rickandmorty.domain.model.CharacterModelAdd
 import com.example.rickandmorty.theme.fonts
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -120,7 +120,7 @@ class AddNewCharacterFragmentCompose : Fragment() {
 
             if (name.text.isNotEmpty() || status.text.isNotEmpty() || specie.text.isNotEmpty() || gender.text.isNotEmpty()) {
                 val photo = "https://rickandmortyapi.com/api/character/avatar/183.jpeg"
-                val character = CharacterModel(52, name.text, status.text, specie.text, gender.text, photo, false)
+                val character = CharacterModelAdd(name.text, status.text, specie.text, gender.text, photo, false)
                 ButtonRegister(character)
             }
         }
@@ -155,7 +155,7 @@ class AddNewCharacterFragmentCompose : Fragment() {
     }*/
 
     @Composable
-    fun ButtonRegister(characterModel: CharacterModel) = Box(
+    fun ButtonRegister(characterModel: CharacterModelAdd) = Box(
         modifier = Modifier
             .padding(40.dp, 0.dp, 40.dp, 0.dp)) {
         Button(onClick = {
@@ -165,7 +165,7 @@ class AddNewCharacterFragmentCompose : Fragment() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp)
-        ) {
+        ) {b
             Text(
                 text = "Add",
                 style = TextStyle(
@@ -178,7 +178,7 @@ class AddNewCharacterFragmentCompose : Fragment() {
         }
     }
 
-    private fun onClicked(characterModel: CharacterModel) {
+    private fun onClicked(characterModel: CharacterModelAdd) {
         Log.i("PUSHED", "PRESIONADO DESDE COMPOSE")
         viewModel.character.observe(viewLifecycleOwner){
         }

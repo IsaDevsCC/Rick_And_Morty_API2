@@ -5,7 +5,7 @@ import com.example.rickandmorty.data.mappers.toModel
 import com.example.rickandmorty.data.mappers.toModelDAO
 import com.example.rickandmorty.data.remote.ApiDataSource
 import com.example.rickandmorty.domain.model.CharacterModel
-import org.koin.dsl.koinApplication
+import com.example.rickandmorty.domain.model.CharacterModelAdd
 
 class DataRepositoryImpl(
     private val remote : ApiDataSource,
@@ -31,7 +31,7 @@ class DataRepositoryImpl(
         return local.getAll().map { it.toModel() }
     }
 
-    override suspend fun insertNewCharacter(characterModel: CharacterModel) = local.insertNewCharacter(characterModel.toModelDAO())
+    override suspend fun insertNewCharacter(characterModel: CharacterModelAdd) = local.insertNewCharacter(characterModel.toModelDAO())
 
 
 }

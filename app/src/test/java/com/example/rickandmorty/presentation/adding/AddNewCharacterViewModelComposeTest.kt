@@ -3,9 +3,7 @@ package com.example.rickandmorty.presentation.adding
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.usecase.GetNewCharacterUseCase
-import com.example.rickandmorty.presentation.detail.CharacterDetailViewModel
 import com.example.rickandmorty.utils.MainDispatcherRule
-import com.example.rickandmorty.utils.TestBuilder
 import com.example.rickandmorty.utils.getOrAwaitValue
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
