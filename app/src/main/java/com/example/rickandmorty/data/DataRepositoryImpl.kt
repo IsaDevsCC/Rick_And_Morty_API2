@@ -32,5 +32,7 @@ class DataRepositoryImpl(
         return local.getAll().map { it.toModel() }
     }
 
+    override suspend fun insertNewCharacter(characterModel: CharacterModel) = local.insertNewCharacter(characterModel.toModelDAO())
+
 
 }

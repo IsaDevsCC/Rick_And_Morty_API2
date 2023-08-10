@@ -11,5 +11,5 @@ val presentationModule = module {
     viewModel { CharacterListViewModel(get(), get(), get()) }
     viewModel { CharacterDetailViewModel(get(), get())}
     viewModel { FavsListComposeViewModel(get()) }
-    viewModel { AddNewCharacterViewModel() }
+    viewModel { AddNewCharacterViewModel(get()) }
 }

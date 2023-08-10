@@ -29,5 +29,8 @@ interface ApiDAO {
 
     @Query("DELETE FROM characters")
     suspend fun deleteAll()
+
+    @Insert
+    suspend fun insertNewCharacter(characterModelDAO: CharacterModelDAO)
 }
 

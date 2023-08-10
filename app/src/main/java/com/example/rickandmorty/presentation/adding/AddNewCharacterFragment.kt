@@ -1,6 +1,7 @@
 package com.example.rickandmorty.presentation.adding
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.fragment.findNavController
 import com.example.rickandmorty.databinding.FragmentAddNewCharacterBinding
+import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.presentation.login.LoginFragmentComposeDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -118,7 +120,8 @@ class AddNewCharacterFragment : Fragment() {
             )
             Space()
             Space()
-            ButtonRegister()
+            val character = CharacterModel(52, name.text, status.text, specie.text, gender.text, "", false)
+            ButtonRegister(character)
         }
     }
 
@@ -148,11 +151,11 @@ class AddNewCharacterFragment : Fragment() {
     }*/
 
     @Composable
-    fun ButtonRegister() = Box(
+    fun ButtonRegister(characterModel: CharacterModel) = Box(
         modifier = Modifier
             .padding(40.dp, 0.dp, 40.dp, 0.dp)) {
         Button(onClick = {
-            onClicked()
+            onClicked(characterModel)
         },
             shape = RoundedCornerShape(50.dp),
             modifier = Modifier
@@ -171,9 +174,10 @@ class AddNewCharacterFragment : Fragment() {
         }
     }
 
-    private fun onClicked() {
-        findNavController().navigate(
-            LoginFragmentComposeDirections.actionLoginFragmentComposeToListCharactersFragment()
-        )
+    private fun onClicked(characterModel: CharacterModel) {
+        Log.i("PUSHED", "PRESIONADO DESDE COMPOSE")
+        viewModel.character.observe(viewLifecycleOwner){
+        }
+        viewModel.addNewCharacter(characterModel)
     }
 }
