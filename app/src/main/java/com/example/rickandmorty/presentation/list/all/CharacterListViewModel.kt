@@ -1,5 +1,6 @@
 package com.example.rickandmorty.presentation.list.all
 
+import androidx.compose.ui.text.toUpperCase
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,10 +34,12 @@ class CharacterListViewModel(
         getData()
     }
     // TODO --> RETRY
-    /*fun getData(name: String) = viewModelScope.launch(Dispatchers.IO) {
-        _data.postValue(if (name.isNotEmpty()) { getUseCase.getCharacters().filter { it.name.contains(name) } }
-                            else getUseCase.getCharacters())
-    }*/
+
+    fun getFilter(name: String) = viewModelScope.launch(Dispatchers.IO) {
+        //_data.postValue(if (name.isNotEmpty()) { getUseCase.getCharacters().filter { it.name.contains(name) } }
+                            //else getUseCase.getCharacters())
+        _data.postValue(getUseCase.getCharacters().filter { it.name.contains(name) })
+    }
 
     fun getData() = viewModelScope.launch(Dispatchers.IO) {
         _data.postValue(getUseCase.getCharacters())
