@@ -1,6 +1,6 @@
-# <h1 style="text-align: center; color : blueviolet; font-family : Courier New;">CRM Project TEAM-5</h1>
+# <h1 style="text-align: center; color : blueviolet; font-family : Courier New;">RICK  AND  MORTY  API<h1>
 
-<div align="center"><img src="RickAndMorty/app/src/main/res/drawable/logo.png"></div>
+<div align="center"><img src="src/main/res/drawable/logo.png"></div>
 <div>
 
 <h2  style="font-family : Courier New; font-size : 25px;">Created by :</h2>
@@ -39,8 +39,29 @@
 <div align="center">
   <p align="center">
     Requirements!
-    <br />
-    <strong>Explore the docs »</strong>
+
+
+<details>
+  <ol>
+    <li>
+      <ul>
+        <li>Compose / AVS.</li>
+        <li>Inyección de dependencias.</li>
+        <li>Koin.</li>
+        <li>Retrofit.</li>
+        <li>Repository pattern</li>
+        <li>Moshi.</li>
+        <li>MVVM.</li>
+        <li>Corutines.</li>
+        <li>Gestión de Estilos.</li>
+        <li>Unit Test.</li>
+        <li>Custom Views.</li>
+      </ul>
+    </li>
+  </ol>
+</details>
+
+
 </div>
 
 
