@@ -13,7 +13,7 @@
 <h2 style="font-family : Courier New; font-size : 25px;">Menu : </h2>
 
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Tabla de Contenidos</summary>
   <ol>
     <li>
       <a href="#sintesis">About the Project</a>
@@ -68,7 +68,25 @@
 
 <div>
 
-<h5> El reto fundamental que busqué cumplir fue la implementación de componentes Compose dentro de un contexto fundamentalmente AVS </h5>
+<h5> El reto fundamental que busqué cumplir fue la implementación de componentes Compose dentro de un contexto fundamentalmente AVS.
+</h5>
+
+<br>
+<p>Integrando con ello la parte lógica, la navegabilidad entre muchos otros retos que se debía de contemplar en dicha integración</p>
+
+<br>
+<h3 style="font-family : Courier New; font-size : 25px;" >Selección de fuentes : </h3>
+<br>
+<h5>Con el objetivo trazado, comencé la búsqueda de una API para implementar en el proyecto, la escogida para ello fue la de Rick And Morty.
+</h5>
+<br>
+<h3 style="font-family : Courier New; font-size : 25px;" >URL API : </h3>
+
+https://rickandmortyapi.com/
+
+<h3 style="font-family : Courier New; font-size : 25px;" >API Docs: </h3>
+
+https://rickandmortyapi.com/documentation
 
 </div>
 
