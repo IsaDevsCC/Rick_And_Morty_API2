@@ -27,12 +27,9 @@ class CharacterListViewModel(
     private val _delete : MutableLiveData<Unit> = MutableLiveData<Unit>()
     val delete : MutableLiveData<Unit> get() = _delete
 
-    // TODO --> ARREGLAR EL USECASE DE FILTRADO
     init {
         getData()
     }
-    // TODO --> RETRY
-
     fun getFilter(name: String) = viewModelScope.launch(dispatcher) {
         _data.postValue(getUseCase.getCharacters().filter { it.name.contains(name) })
     }

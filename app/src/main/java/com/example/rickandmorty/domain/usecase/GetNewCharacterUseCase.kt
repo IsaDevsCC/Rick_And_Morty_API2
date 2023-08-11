@@ -7,6 +7,5 @@ import com.example.rickandmorty.domain.model.CharacterModelAdd
 class GetNewCharacterUseCase(
     private val repository : DataRepository
 ) {
-
     suspend fun addNewCharacter(character: CharacterModelAdd)  = repository.insertNewCharacter(character)
 }

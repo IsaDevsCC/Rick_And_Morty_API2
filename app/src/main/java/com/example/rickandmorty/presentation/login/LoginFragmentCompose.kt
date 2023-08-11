@@ -104,16 +104,6 @@ class LoginFragmentCompose : Fragment() {
             )
         }
 
-    /*private @Composable
-    fun SetBackGround() = Image(
-            painter = painterResource(id = R.drawable.rick_and_morty_background),
-            modifier = Modifier.fillMaxSize(),
-            contentDescription = "",
-            contentScale = ContentScale.Fit
-        )*/
-
-
-
     private @Composable
     fun Login() {
         val text = "ricksanchez@fantasymail.com"
