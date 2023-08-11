@@ -1,6 +1,6 @@
 # <h1 style="text-align: center; color : blueviolet; font-family : Courier New;">RICK  AND  MORTY  API<h1>
 
-<div align="center"><img src="src/main/res/drawable/logo.png"></div>
+<div align="center"><img src="app/src/main/res/drawable/logo.png"></div>
 <div>
 
 <h2  style="font-family : Courier New; font-size : 25px;">Created by :</h2>
@@ -40,7 +40,6 @@
   <p align="center">
     Requirements!
 
-
 <details>
   <ol>
     <li>
@@ -61,9 +60,17 @@
   </ol>
 </details>
 
-
 </div>
 
+<h2 style="font-family : Courier New; font-size : 25px;" >Objetivos</h2>
+
+<h3 style="font-family : Courier New; font-size : 25px;" >Descripción : </h3>
+
+<div>
+
+<h5> El reto fundamental que busqué cumplir fue la implementación de componentes Compose dentro de un contexto fundamentalmente AVS </h5>
+
+</div>
 
 <p align="right">(<a href="#top" >back to top</a>)</p>
 
@@ -120,35 +127,6 @@
 <p align="right">(<a href="#top" >back to top</a>)</p>
 
 
-<h2 style="font-family : Courier New; font-size : 25px;" id="usage">How to Use</h2>
-
-1. Select a command from panel (we recommended add new values to the storage).
-
-<div align="center"><img src="src/img/menu.png"></div>
-
-2. Create the instances of Lead with every value
-
-<div align="center"><img src="src/img/name.png"></div>
-
-3. Check that new value was added correctly
-
-<div align="center"><img src="src/img/leadOk.png"></div>
-
-4. Follow with the exactly commands of menu.
-
-- Check All Leads
-
-<div align="center"><img src="src/img/allLeads.png"></div>
-
-- Or another command
-
-<div align="center"><img src="src/img/opportunities.png"></div>
-
-<p align="right">(<a href="#top" >back to top</a>)</p>
-
-<h2 style="font-family : Courier New; font-size : 25px;" id="modelo1">Use Case Diagram</h2>
-
-The use case show how a user could do it different opperations in the CRM, just with a few command lines.
 
 ### Available Operations :
 
