@@ -39,10 +39,9 @@
 <div align="center">
   <p align="center">
     Requirements!
+</div>
 
 <details>
-  <ol>
-    <li>
       <ul>
         <li>Compose / AVS.</li>
         <li>Inyección de dependencias.</li>
@@ -56,11 +55,9 @@
         <li>Unit Test.</li>
         <li>Custom Views.</li>
       </ul>
-    </li>
-  </ol>
 </details>
 
-</div>
+
 
 <h2 style="font-family : Courier New; font-size : 25px;" >Objetivos</h2>
 
@@ -68,8 +65,8 @@
 
 <div>
 
-<h5> El reto fundamental que busqué cumplir fue la implementación de componentes Compose dentro de un contexto fundamentalmente AVS.
-</h5>
+<p> El reto fundamental que busqué cumplir fue la implementación de componentes Compose dentro de un contexto fundamentalmente AVS.
+</p>
 
 <br>
 <p>Integrando con ello la parte lógica, la navegabilidad entre muchos otros retos que se debía de contemplar en dicha integración</p>
@@ -77,8 +74,8 @@
 <br>
 <h3 style="font-family : Courier New; font-size : 25px;" >Selección de fuentes : </h3>
 <br>
-<h5>Con el objetivo trazado, comencé la búsqueda de una API para implementar en el proyecto, la escogida para ello fue la de Rick And Morty.
-</h5>
+<p>Con el objetivo trazado, comencé la búsqueda de una API para implementar en el proyecto, la escogida para ello fue la de Rick And Morty.
+</p>
 <br>
 <h3 style="font-family : Courier New; font-size : 25px;" >URL API : </h3>
 
