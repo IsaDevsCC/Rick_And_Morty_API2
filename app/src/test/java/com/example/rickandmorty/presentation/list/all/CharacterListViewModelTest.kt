@@ -61,6 +61,8 @@ class CharacterListViewModelTest {
 
         val viewModel = CharacterListViewModel(getCharacterListUseCase, deleteUseCase, resetUseCase, dispacher)
 
+        viewModel.getData()
+
         val response = viewModel.data.getOrAwaitValue()
 
         Assert.assertEquals(15, response.size)

@@ -1,6 +1,7 @@
 package com.example.rickandmorty.utils
 
 import com.example.rickandmorty.domain.model.CharacterModel
+import com.example.rickandmorty.domain.model.CharacterModelAdd
 
 class TestBuilder {
     val id: Int = 55
@@ -49,6 +50,15 @@ class TestBuilder {
 
     fun buildModel() = CharacterModel(
         id = id,
+        name = name,
+        status = status,
+        specie = specie,
+        gender = gender,
+        photo = photo,
+        favorite = favorite
+    )
+
+    fun buildModelAdd() = CharacterModelAdd(
         name = name,
         status = status,
         specie = specie,

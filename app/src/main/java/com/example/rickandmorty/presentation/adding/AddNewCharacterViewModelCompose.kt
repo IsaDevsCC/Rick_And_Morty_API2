@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickandmorty.domain.model.CharacterModel
 import com.example.rickandmorty.domain.model.CharacterModelAdd
 import com.example.rickandmorty.domain.usecase.GetNewCharacterUseCase
 import kotlinx.coroutines.Dispatchers

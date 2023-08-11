@@ -165,7 +165,7 @@ class AddNewCharacterFragmentCompose : Fragment() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp)
-        ) {b
+        ) {
             Text(
                 text = "Add",
                 style = TextStyle(

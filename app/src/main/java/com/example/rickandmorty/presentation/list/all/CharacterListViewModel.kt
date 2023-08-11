@@ -24,9 +24,6 @@ class CharacterListViewModel(
     private val _data : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())
     val data : LiveData<List<CharacterModel>> get() = _data
 
-    private val _filter : MutableLiveData<List<CharacterModel>> = MutableLiveData<List<CharacterModel>>(listOf())
-    val filter : LiveData<List<CharacterModel>> get() = _filter
-
     private val _delete : MutableLiveData<Unit> = MutableLiveData<Unit>()
     val delete : MutableLiveData<Unit> get() = _delete
 
