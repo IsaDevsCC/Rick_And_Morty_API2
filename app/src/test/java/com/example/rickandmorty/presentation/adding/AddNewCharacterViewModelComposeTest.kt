@@ -38,7 +38,7 @@ class AddNewCharacterViewModelComposeTest {
     *
     * - Al ser un Void y sin saber muy bien
     * */
-    /*@Test
+    @Test
     fun `WHEN call to Add EXPECT the correct size list`() = runTest {
         coEvery { useCase.addNewCharacter(characterModel()) }
 
@@ -48,9 +48,9 @@ class AddNewCharacterViewModelComposeTest {
 
         viewModel.character.getOrAwaitValue()
 
-        assertThat(22,`is`(viewModel.character.value?.id))
+        assertThat("Alice Chains",`is`(viewModel.character.value?.name))
 
-    }*/
+    }
 
     fun characterModel() = CharacterModelAdd(
         name = "Alice Chains",
